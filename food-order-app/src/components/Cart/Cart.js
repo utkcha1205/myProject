@@ -7,10 +7,10 @@ const Cart = props => {
         name:'Sushi',
         amount:2,
         price:12.99
-    }].map(item => <li>{item.name}</li>);
+    }].map(item => <li key={item.id}>{item.name}</li>);
 
     return(
-        <Modal>
+        <Modal onClose={props.onHideCart}>
             <ul className={classes['cart-items']}>
                 {cartItems}
             </ul>
@@ -21,7 +21,7 @@ const Cart = props => {
                 <span>35.4</span>
             </div>
             <div className={classes.actions}>
-                <button className={classes['button--alt']}>Close</button>
+                <button className={classes['button--alt']} onClick={props.onHideCart}>Close</button>
                 <button className={classes.button}>Order</button>
        
             </div>
