@@ -7,9 +7,13 @@ import CartItem from "./CartItem";
 const Cart = (props) => {
   const cartContext = useContext(CartContext);
 
-  const cartItemAddHandler = (item) => {};
+  const cartItemAddHandler = (item) => {
+      cartContext.addItem({...item, amount:1})
+  };
 
-  const cartItemRemoveHandler = (id) => {};
+  const cartItemRemoveHandler = (id) => {
+    cartContext.removeItem(id)
+  };
 
   const cartItems = cartContext.items.map((item) => (
     <CartItem
